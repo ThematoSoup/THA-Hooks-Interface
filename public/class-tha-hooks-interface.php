@@ -64,59 +64,17 @@ class THA_Hooks_Interface {
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
-		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-
-		/* Define custom functionality.
+		/* Add our code blocks to THA hooks.
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		$all_tha_hooks = array(
-			/*
-			'tha_html_before',
-			'tha_body_top',
-			'tha_body_bottom',
-			'tha_head_top',
-			'tha_head_bottom',
-			'tha_header_before',
-			'tha_header_after',
-			'tha_header_top',
-			'tha_header_bottom',
-			'tha_content_before',
-			'tha_content_after',
-			'tha_content_top',
-			'tha_content_bottom',
-			'tha_entry_before',
-			'tha_entry_after',
-			'tha_entry_top',
-			'tha_entry_bottom',
-			'tha_comments_before',
-			'tha_comments_after',
-			'tha_sidebars_before',
-			'tha_sidebars_after',
-			'tha_sidebar_top',
-			'tha_sidebar_bottom',
-			'tha_footer_before',
-			'tha_footer_after',
-			'tha_footer_top',
-			'tha_footer_bottom'
-			*/
-			'html' => array(
-				'tha_html_before',
-			),
-			'body' => array(
-				'tha_body_top',
-				'tha_body_bottom'
-			)
-		);
-
-		foreach ( $all_tha_hooks as $tha_hooks_group ) :
-			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
-			foreach( $tha_hooks_group as $tha_hook ) :
-				// Check if there's something to hook
-				// if ( isset( $tha_interface_settings[ $tha_hook ]['output'] ) && '' != $tha_interface_settings[ $tha_hook ]['output'] ) :
-					add_action( $tha_hook, array( $this, 'tha_action_function' ) );
-				// endif;
+		$all_tha_hooks = tha_interface_all_hooks();
+		foreach ( $all_tha_hooks as $tha_hooks_group => $tha_hooks_group_values ) :
+			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $tha_hooks_group );
+			foreach ( $tha_hooks_group_values['hooks'] as $hook_name => $hook_description ) :
+				// Check if there's an action to add
+				if ( isset( $tha_interface_settings[ $hook_name ]['output'] ) && '' != $tha_interface_settings[ $hook_name ]['output'] ) :
+					// add_action( $hook_name, array( $this, 'tha_action_function_' . $hook_name ) );
+				endif;
 			endforeach;
 		endforeach;
 
@@ -298,24 +256,6 @@ class THA_Hooks_Interface {
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
 
-	}
-
-	/**
-	 * Register and enqueue public-facing style sheet.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
-	}
-
-	/**
-	 * Register and enqueues public-facing JavaScript files.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION );
 	}
 
 	/**

@@ -15,30 +15,32 @@
 *
 * @since    1.0.0
 */
-function tha_interface_all_hooks() {
+$plugin = THA_Hooks_Interface::get_instance();
+$plugin_slug = $plugin->get_plugin_slug();
 
-	$plugin = THA_Hooks_Interface::get_instance();
-	$plugin_slug = $plugin->get_plugin_slug();
+function tha_interface_all_hooks( $plugin_slug ) {
+
+	$plugin_slug = 'tha-hooks-interface';
 
 	$tha_hooks = array(
 		'html' => array(
 			'name' => __( 'HTML', $plugin_slug ),
 			'hooks' => array(
-				'tha_html_before' => __( 'Before opening <html> tag', $plugin_slug ),
+				'tha_html_before' => __( 'Before opening &lt;html&gt; tag', $plugin_slug ),
 			)
 		),
 		'body' => array(
 			'name' => __( 'Body', $plugin_slug ),
 			'hooks' => array(
-				'tha_body_top' => __( 'After opening <body> tag', $plugin_slug ),
-				'tha_body_bottom' => __( 'Before closing </body> tag', $plugin_slug ),
+				'tha_body_top' => __( 'After opening &lt;body&gt; tag', $plugin_slug ),
+				'tha_body_bottom' => __( 'Before closing &lt;/body&gt; tag', $plugin_slug ),
 			)
 		),
 		'head' => array(
 			'name' => __( 'Head', $plugin_slug ),
 			'hooks' => array(
-				'tha_head_top' => __( 'After opening <head> tag', $plugin_slug ),
-				'tha_head_bottom' => __( 'Before closing </head> tag', $plugin_slug ),
+				'tha_head_top' => __( 'After opening &lt;head&gt; tag', $plugin_slug ),
+				'tha_head_bottom' => __( 'Before closing &lt;/head&gt; tag', $plugin_slug ),
 			)
 		),
 		'header' => array(

@@ -241,7 +241,9 @@ class THA_Hooks_Interface_Admin {
 		$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
 		?>
 		
+		<p>
 		<textarea style="font-family:monospace" rows="10" class="widefat" name="<?php echo $output_field_name; ?>" id="<?php echo $output_field_name; ?>"><?php echo htmlentities( $tha_interface_settings[ $hook_name ]['output'], ENT_QUOTES, 'UTF-8' ); ?></textarea>
+		</p>
 		
 		<label for="<?php echo $php_field_name; ?>">
 			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['php'], 1 ); ?> />
