@@ -5,11 +5,11 @@
  * This includes the header, options, and other information that should provide
  * The User Interface to the end user.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   THA_Hooks_Interface
+ * @author    ThematoSoup <contact@thematosoup.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://thematosoup.com
+ * @copyright 2013 ThematoSoup
  */
 ?>
 
@@ -18,6 +18,22 @@
 	<?php screen_icon(); ?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
-	<!-- TODO: Provide markup for your options page here. -->
+	<?php $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'html'; ?>
+
+	<?php $all_tha_hooks = tha_interface_all_hooks(); ?>
+	
+	<h2 class="nav-tab-wrapper">
+		<?php foreach ( $all_tha_hooks as $tha_hooks_group => $tha_hooks_group_values ) : ?>
+		<a href="?page=tha-hooks-interface&tab=<?php echo $tha_hooks_group; ?>" class="nav-tab <?php echo $active_tab == $tha_hooks_group ? 'nav-tab-active' : ''; ?>"><?php echo $tha_hooks_group_values['name'] ; ?></a>
+		<?php endforeach; ?>
+	</h2>
+
+	<form method="post" action="options.php">
+		<?php
+			settings_fields( 'tha_hooks_interface_' . $active_tab ); 
+			do_settings_sections( 'tha_hooks_interface_' . $active_tab ); 
+			submit_button();
+		?>
+	</form>
 
 </div>

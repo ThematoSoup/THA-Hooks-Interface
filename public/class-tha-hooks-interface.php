@@ -1,27 +1,22 @@
 <?php
 /**
- * Plugin Name.
+ * THA Hooks Interface.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   THA_Hooks_Interface
+ * @author    ThematoSoup <contact@thematosoup.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2013 Your Name or Company Name
+ * @link      http://thematosoup.com
+ * @copyright 2013 ThematoSoup
  */
 
 /**
  * Plugin class. This class should ideally be used to work with the
  * public-facing side of the WordPress site.
  *
- * If you're interested in introducing administrative or dashboard
- * functionality, then refer to `class-plugin-name-admin.php`
- *
- * TODO: Rename this class to a proper name for your plugin.
- *
- * @package Plugin_Name
- * @author  Your Name <email@example.com>
+ * @package THA_Hooks_Interface
+ * @author  ThematoSoup <contact@thematosoup.com>
  */
-class Plugin_Name {
+class THA_Hooks_Interface {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -33,8 +28,6 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * TODO - Rename "plugin-name" to the name your your plugin
-	 *
 	 * Unique identifier for your plugin.
 	 *
 	 *
@@ -46,7 +39,7 @@ class Plugin_Name {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'plugin-name';
+	protected $plugin_slug = 'tha-hooks-interface';
 
 	/**
 	 * Instance of this class.
@@ -78,8 +71,54 @@ class Plugin_Name {
 		/* Define custom functionality.
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( 'TODO', array( $this, 'action_method_name' ) );
-		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
+		$all_tha_hooks = array(
+			/*
+			'tha_html_before',
+			'tha_body_top',
+			'tha_body_bottom',
+			'tha_head_top',
+			'tha_head_bottom',
+			'tha_header_before',
+			'tha_header_after',
+			'tha_header_top',
+			'tha_header_bottom',
+			'tha_content_before',
+			'tha_content_after',
+			'tha_content_top',
+			'tha_content_bottom',
+			'tha_entry_before',
+			'tha_entry_after',
+			'tha_entry_top',
+			'tha_entry_bottom',
+			'tha_comments_before',
+			'tha_comments_after',
+			'tha_sidebars_before',
+			'tha_sidebars_after',
+			'tha_sidebar_top',
+			'tha_sidebar_bottom',
+			'tha_footer_before',
+			'tha_footer_after',
+			'tha_footer_top',
+			'tha_footer_bottom'
+			*/
+			'html' => array(
+				'tha_html_before',
+			),
+			'body' => array(
+				'tha_body_top',
+				'tha_body_bottom'
+			)
+		);
+
+		foreach ( $all_tha_hooks as $tha_hooks_group ) :
+			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
+			foreach( $tha_hooks_group as $tha_hook ) :
+				// Check if there's something to hook
+				// if ( isset( $tha_interface_settings[ $tha_hook ]['output'] ) && '' != $tha_interface_settings[ $tha_hook ]['output'] ) :
+					add_action( $tha_hook, array( $this, 'tha_action_function' ) );
+				// endif;
+			endforeach;
+		endforeach;
 
 	}
 
@@ -288,21 +327,8 @@ class Plugin_Name {
 	 *
 	 * @since    1.0.0
 	 */
-	public function action_method_name() {
-		// TODO: Define your action hook callback here
-	}
-
-	/**
-	 * NOTE:  Filters are points of execution in which WordPress modifies data
-	 *        before saving it or sending it to the browser.
-	 *
-	 *        Filters: http://codex.wordpress.org/Plugin_API#Filters
-	 *        Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
-	 *
-	 * @since    1.0.0
-	 */
-	public function filter_method_name() {
-		// TODO: Define your filter hook callback here
+	public function tha_action_function( $hooks_group, $hook_name ) {
+		echo '123';
 	}
 
 }
