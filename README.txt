@@ -28,7 +28,7 @@ THA Hooks Interface checks whether a theme uses these standardized hooks and if 
 
 1. Navigate to the 'Add New' in the plugins dashboard
 2. Navigate to the 'Upload' area
-3. Select `plugin-name.zip` from your computer
+3. Select `tha-hooks-interface.zip` from your computer
 4. Click 'Install Now'
 5. Activate the plugin in the Plugin dashboard
 
