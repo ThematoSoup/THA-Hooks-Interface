@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-THA Hooks Interface uses Theme Hook Alliance and allows child theme authors to easily customize and alter theme functionality from within dashboard.
+THA Hooks Interface follows Theme Hook Alliance to allow child theme authors to easily customize and alter theme functionality from within dashboard.
 
 == Description ==
 
