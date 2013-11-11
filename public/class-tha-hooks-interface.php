@@ -68,12 +68,13 @@ class THA_Hooks_Interface {
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
 		$all_tha_hooks = tha_interface_all_hooks();
-		foreach ( $all_tha_hooks as $tha_hooks_group => $tha_hooks_group_values ) :
-			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $tha_hooks_group );
-			foreach ( $tha_hooks_group_values['hooks'] as $hook_name => $hook_description ) :
+		foreach ( $all_tha_hooks as $hooks_group => $hooks_group_values ) :
+			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
+			foreach ( $hooks_group_values['hooks'] as $hook_name => $hook_description ) :
+				// echo '<pre>'; print_r( 'add_' . $hooks_group . '_' . $hook_name ); echo '</pre>';
 				// Check if there's an action to add
 				if ( isset( $tha_interface_settings[ $hook_name ]['output'] ) && '' != $tha_interface_settings[ $hook_name ]['output'] ) :
-					// add_action( $hook_name, array( $this, 'tha_action_function_' . $hook_name ) );
+					add_action( $hook_name, array( $this, 'add_' . $hooks_group . '_' . $hook_name ) );
 				endif;
 			endforeach;
 		endforeach;
@@ -267,8 +268,115 @@ class THA_Hooks_Interface {
 	 *
 	 * @since    1.0.0
 	 */
-	public function tha_action_function( $hooks_group, $hook_name ) {
-		echo '123';
+	
+	// HTML
+	public function add_html_tha_html_before() {
+		$this->tha_action( 'html', 'tha_html_before' );
 	}
+	
+	// <body>
+	public function add_body_tha_body_top() {
+		$this->tha_action( 'body', 'tha_body_top' );
+	}
+	public function add_body_tha_body_bottom() {
+		$this->tha_action( 'body', 'tha_body_bottom' );
+	}
+	
+	// <head>
+	public function add_head_tha_head_top() {
+		$this->tha_action( 'head', 'tha_head_top' );
+	}
+	public function add_head_tha_head_bottom() {
+		$this->tha_action( 'head', 'tha_head_bottom' );
+	}
+	
+	// Header
+	public function add_header_tha_header_before() {
+		$this->tha_action( 'header', 'tha_header_before' );
+	}
+	public function add_header_tha_header_after() {
+		$this->tha_action( 'header', 'tha_header_after' );
+	}
+	public function add_header_tha_header_top() {
+		$this->tha_action( 'header', 'tha_header_top' );
+	}
+	public function add_header_tha_header_bottom() {
+		$this->tha_action( 'header', 'tha_header_bottom' );
+	}
+	
+	// Content
+	public function add_content_tha_content_before() {
+		$this->tha_action( 'content', 'tha_content_before' );
+	}
+	public function add_content_tha_content_after() {
+		$this->tha_action( 'content', 'tha_content_after' );
+	}
+	public function add_content_tha_content_top() {
+		$this->tha_action( 'content', 'tha_content_top' );
+	}
+	public function add_content_tha_content_bottom() {
+		$this->tha_action( 'content', 'tha_content_bottom' );
+	}
+	
+	// Entry
+	public function add_entry_tha_entry_before() {
+		$this->tha_action( 'entry', 'tha_entry_before' );
+	}
+	public function add_entry_tha_entry_after() {
+		$this->tha_action( 'entry', 'tha_entry_after' );
+	}
+	public function add_entry_tha_entry_top() {
+		$this->tha_action( 'entry', 'tha_entry_top' );
+	}
+	public function add_entry_tha_entry_bottom() {
+		$this->tha_action( 'entry', 'tha_entry_bottom' );
+	}
+	
+	// Comments
+	public function add_comments_tha_comments_before() {
+		$this->tha_action( 'comments', 'tha_comments_before' );
+	}
+	public function add_comments_tha_comments_after() {
+		$this->tha_action( 'comments', 'tha_comments_after' );
+	}
+	
+	// Sidebar
+	public function add_sidebar_tha_sidebars_before() {
+		$this->tha_action( 'sidebar', 'tha_sidebars_before' );
+	}
+	public function add_sidebar_tha_sidebars_after() {
+		$this->tha_action( 'sidebar', 'tha_sidebars_after' );
+	}
+	public function add_sidebar_tha_sidebar_top() {
+		$this->tha_action( 'sidebar', 'tha_sidebar_top' );
+	}
+	public function add_sidebar_tha_sidebar_bottom() {
+		$this->tha_action( 'sidebar', 'tha_sidebar_bottom' );
+	}
+	
+	// Footer
+	public function add_footer_tha_footer_before() {
+		$this->tha_action( 'footer', 'tha_footer_before' );
+	}
+	public function add_footer_tha_footer_after() {
+		$this->tha_action( 'footer', 'tha_footer_after' );
+	}
+	public function add_footer_tha_footer_top() {
+		$this->tha_action( 'footer', 'tha_footer_top' );
+	}
+	public function add_footer_tha_footer_bottom() {
+		$this->tha_action( 'footer', 'tha_footer_bottom' );
+	}
+	
+	/**
+	 * Adds an action to THA hook.
+	 *
+	 * @since    1.0.0
+	 */
+	public function tha_action( $hook_group, $hook_name ) {
+
+		echo '123';	
+
+	}	
 
 }
