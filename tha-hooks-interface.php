@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  *----------------------------------------------------------------------------*/
 
 require_once( plugin_dir_path( __FILE__ ) . '/public/class-tha-hooks-interface.php' );
-require_once( plugin_dir_path( __FILE__ ) . '/tha-hooks-list.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/hooks-list.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.

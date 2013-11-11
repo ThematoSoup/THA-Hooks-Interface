@@ -207,7 +207,7 @@ class THA_Hooks_Interface_Admin {
 				// Next, we will introduce the fields for toggling the visibility of content elements.
 				add_settings_field(	
 					$hook_name,				     		     // ID used to identify the field throughout the theme
-					$hook_description,							     // The label to the left of the option interface element
+					$hook_name,							     // The label to the left of the option interface element
 					array( $this, 'field_cb' ),     	     // The name of the function responsible for rendering the option interface
 					'tha_hooks_interface_' . $tha_hooks_group,	     // The page on which this option will be displayed
 					'tha_hooks_interface_section_' . $tha_hooks_group, // The name of the section to which this field belongs
@@ -241,21 +241,25 @@ class THA_Hooks_Interface_Admin {
 		$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
 		?>
 		
+		<p><?php echo $hook_description; ?></p>
+
 		<p>
 		<textarea style="font-family:monospace" rows="10" class="widefat" name="<?php echo $output_field_name; ?>" id="<?php echo $output_field_name; ?>"><?php echo htmlentities( $tha_interface_settings[ $hook_name ]['output'], ENT_QUOTES, 'UTF-8' ); ?></textarea>
 		</p>
 		
+		<p>
 		<label for="<?php echo $php_field_name; ?>">
 			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['php'], 1 ); ?> />
 			<?php _e( 'Execute PHP in this hook', $this->plugin_slug ); ?>
 		</label>
-		
-		<br />
+		</p>
 
+		<p>
 		<label for="<?php echo $php_field_name; ?>">
 			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['shortcode'], 1 ); ?> />
 			<?php _e( 'Run shortcodes in this hook', $this->plugin_slug ); ?>
 		</label>
+		</p>
 	<?php }
 
 }

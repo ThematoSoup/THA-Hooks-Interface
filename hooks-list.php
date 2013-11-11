@@ -23,6 +23,13 @@ function tha_interface_all_hooks( $plugin_slug ) {
 	$plugin_slug = 'tha-hooks-interface';
 
 	$tha_hooks = array(
+		'WordPress' => array(
+			'name' => __( 'WordPress', $plugin_slug ),
+			'hooks' => array(
+				'wp_head' => __( 'Inside &lt;head&gt; element', $plugin_slug ),
+				'wp_footer' => __( 'Immediately before closing &lt;body&gt; tag', $plugin_slug ),
+			)
+		),
 		'html' => array(
 			'name' => __( 'HTML', $plugin_slug ),
 			'hooks' => array(
