@@ -24,13 +24,6 @@ THA Hooks Interface checks whether a theme uses these standardized hooks and if 
 3. Click 'Install Now'
 4. Activate the plugin on the Plugin dashboard
 
-or
-
-1. Download the plugin from this page
-2. Unzip the folder
-3. Upload the contents of the unzipped folder to /wp-content/plugins/ directory
-4. Activate the plugin on the Plugin dashboard
-
 = Uploading in WordPress Dashboard =
 
 1. Navigate to the 'Add New' in the plugins dashboard
@@ -41,9 +34,9 @@ or
 
 = Using FTP =
 
-1. Download `plugin-name.zip`
-2. Extract the `plugin-name` directory to your computer
-3. Upload the `plugin-name` directory to the `/wp-content/plugins/` directory
+1. Download `tha-hooks-interface.zip`
+2. Extract the `tha-hooks-interface` directory to your computer
+3. Upload the `tha-hooks-interface` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
 
