@@ -73,7 +73,7 @@ class THA_Hooks_Interface {
 			foreach ( $hooks_group_values['hooks'] as $hook_name => $hook_description ) :
 				// Check if there's an action to add
 				if ( isset( $tha_interface_settings[ $hook_name ]['output'] ) && '' != $tha_interface_settings[ $hook_name ]['output'] ) :
-					add_action( $hook_name, array( $this, 'add_' . $hooks_group . '_' . $hook_name ) );
+					add_action( $hook_name, array( $this, 'add_' . $hooks_group . '_' . $hook_name ), 10 );
 				endif;
 			endforeach;
 		endforeach;
