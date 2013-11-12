@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: THA Hooks Interface\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-12 09:45+0100\n"
-"PO-Revision-Date: 2013-11-12 09:45+0100\n"
+"POT-Creation-Date: 2013-11-12 13:00+0100\n"
+"PO-Revision-Date: 2013-11-12 13:00+0100\n"
 "Last-Translator: Slobodan Manic <slobodan.manic@gmail.com>\n"
 "Language-Team: ThematoSoup <contact@thematosoup.com>\n"
 "Language: en_US\n"
@@ -30,11 +30,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:253
+#: admin/class-tha-hooks-interface-admin.php:260
 msgid "Execute PHP in this hook"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:260
+#: admin/class-tha-hooks-interface-admin.php:268
 msgid "Run shortcodes in this hook"
 msgstr ""
 
