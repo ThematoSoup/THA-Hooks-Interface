@@ -1,7 +1,7 @@
 === THA Hooks Interface by ThematoSoup ===
-Contributors: slobodanmanic
+Contributors: slobodanmanic, nikolicdragan
 Tags: theme hook alliance. hooks, THA, thematosoup
-Requires at least: 3.6
+Requires at least: 3.5
 Tested up to: 3.7.1
 Stable tag: 1.0
 License: GPLv2 or later
