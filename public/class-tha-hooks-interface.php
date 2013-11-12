@@ -68,11 +68,9 @@ class THA_Hooks_Interface {
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
 		$all_tha_hooks = tha_interface_all_hooks( $this->plugin_slug );
-		echo '<pre>'; print_r( $all_tha_hooks ); echo '</pre>';
 		foreach ( $all_tha_hooks as $hooks_group => $hooks_group_values ) :
 			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
 			foreach ( $hooks_group_values['hooks'] as $hook_name => $hook_description ) :
-				// echo '<pre>'; print_r( 'add_' . $hooks_group . '_' . $hook_name ); echo '</pre>';
 				// Check if there's an action to add
 				if ( isset( $tha_interface_settings[ $hook_name ]['output'] ) && '' != $tha_interface_settings[ $hook_name ]['output'] ) :
 					add_action( $hook_name, array( $this, 'add_' . $hooks_group . '_' . $hook_name ) );
@@ -382,12 +380,23 @@ class THA_Hooks_Interface {
 	 *
 	 * @since    1.0.0
 	 */
-	public function tha_action( $hook_group, $hook_name ) {
+	public function tha_action( $hooks_group, $hook_name ) {
 
 		$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
 		$tha_interface_setting = $tha_interface_settings[ $hook_name ];
-		print_r( $tha_interface_setting );
-		echo '123';
+		$tha_output = $tha_interface_setting['output'];
+		
+		if ( isset( $tha_interface_setting['php'] ) ) :
+			ob_start();
+			eval( '?>' . $tha_output );
+			$tha_output = ob_get_contents();
+			ob_end_clean();
+			echo $tha_output;
+		elseif ( isset( $tha_interface_setting['shortcode'] ) ) :
+			echo do_shortcode( $tha_output );
+		else :
+			echo $tha_output;
+		endif;
 
 	}	
 

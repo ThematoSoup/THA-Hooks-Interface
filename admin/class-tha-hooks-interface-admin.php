@@ -195,10 +195,10 @@ class THA_Hooks_Interface_Admin {
 		
 			// First, we register a section. This is necessary since all future options must belong to one.  
 			add_settings_section(  
-				'tha_hooks_interface_section_' . $tha_hooks_group, // ID used to identify this section and with which to register options  
-				'',         // Title to be displayed on the administration page  
-				'',              // Callback used to render the description of the section  
-				'tha_hooks_interface_' . $tha_hooks_group         // Page on which to add this section of options  
+				'tha_hooks_interface_section_' . $tha_hooks_group,
+				'',
+				'',
+				'tha_hooks_interface_' . $tha_hooks_group
 			); 
 	
 			// For each hook in hooks group, add settings field
@@ -206,12 +206,12 @@ class THA_Hooks_Interface_Admin {
 
 				// Next, we will introduce the fields for toggling the visibility of content elements.
 				add_settings_field(	
-					$hook_name,				     		     // ID used to identify the field throughout the theme
-					$hook_name,							     // The label to the left of the option interface element
-					array( $this, 'field_cb' ),     	     // The name of the function responsible for rendering the option interface
-					'tha_hooks_interface_' . $tha_hooks_group,	     // The page on which this option will be displayed
-					'tha_hooks_interface_section_' . $tha_hooks_group, // The name of the section to which this field belongs
-					array(								     // The array of arguments to pass to the callback. In this case, just a description.
+					$hook_name,
+					$hook_name,
+					array( $this, 'field_cb' ),
+					'tha_hooks_interface_' . $tha_hooks_group,
+					'tha_hooks_interface_section_' . $tha_hooks_group,
+					array(
 						$tha_hooks_group,
 						$hook_name,
 						$hook_description
@@ -223,7 +223,8 @@ class THA_Hooks_Interface_Admin {
 			// Finally, we register the fields with WordPress  
 			register_setting(  
 			    'tha_hooks_interface_' . $tha_hooks_group,  
-			    'tha_hooks_interface_' . $tha_hooks_group  
+			    'tha_hooks_interface_' . $tha_hooks_group,
+			    array( $this, 'sanitize_field' )
 			); 		
 		
 		endforeach;
@@ -261,5 +262,21 @@ class THA_Hooks_Interface_Admin {
 		</label>
 		</p>
 	<?php }
+	
+	
+	/**
+	 * Sanitize the field, filter out HTML if a user can't post HTML markup.
+	 *
+	 * @since    1.0.0
+	 */
+	public function sanitize_field( $field ) {
+		
+		if ( ( current_user_can( 'unfiltered_html' ) ) ) :
+			return $field;
+		else :
+			return stripslashes( wp_filter_post_kses( $field ) );
+		endif;
+		
+	}
 
 }
