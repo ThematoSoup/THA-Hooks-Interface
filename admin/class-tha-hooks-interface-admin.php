@@ -232,10 +232,16 @@ class THA_Hooks_Interface_Admin {
 	}
 	
 
+	/**
+	 * Callback function for settings fields for each hook.
+	 *
+	 * @since    1.0.0
+	 */
 	public function field_cb( $args ) {
 		$hooks_group = $args[0];
 		$hook_name = $args[1];
 		$hook_description = $args[2];
+		
 		$output_field_name = 'tha_hooks_interface_' . $hooks_group . '[' . $hook_name . '][output]';
 		$php_field_name = 'tha_hooks_interface_' . $hooks_group . '[' . $hook_name . '][php]';
 		$shortcode_field_name = 'tha_hooks_interface_' . $hooks_group . '[' . $hook_name . '][shortcode]';
@@ -255,12 +261,14 @@ class THA_Hooks_Interface_Admin {
 		</label>
 		</p>
 
+		<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
 		<p>
 		<label for="<?php echo $shortcode_field_name; ?>">
 			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['shortcode'], 1 ); ?> />
 			<?php _e( 'Run shortcodes in this hook', $this->plugin_slug ); ?>
 		</label>
 		</p>
+		<?php endif; ?>
 	<?php }
 	
 	
