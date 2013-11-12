@@ -189,7 +189,7 @@ class THA_Hooks_Interface_Admin {
 	 */
 	public function plugin_options() {
 
-		$all_tha_hooks = tha_interface_all_hooks();
+		$all_tha_hooks = tha_interface_all_hooks( $this->plugin_slug );
 		// Register a settings section for each hooks group
 		foreach ( $all_tha_hooks as $tha_hooks_group => $tha_hooks_group_values ) :
 		

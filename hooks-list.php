@@ -15,9 +15,6 @@
 *
 * @since    1.0.0
 */
-$plugin = THA_Hooks_Interface::get_instance();
-$plugin_slug = $plugin->get_plugin_slug();
-
 function tha_interface_all_hooks( $plugin_slug ) {
 
 	$plugin_slug = 'tha-hooks-interface';
