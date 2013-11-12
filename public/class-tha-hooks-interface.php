@@ -68,6 +68,7 @@ class THA_Hooks_Interface {
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
 		$all_tha_hooks = tha_interface_all_hooks( $this->plugin_slug );
+		echo '<pre>'; print_r( $all_tha_hooks ); echo '</pre>';
 		foreach ( $all_tha_hooks as $hooks_group => $hooks_group_values ) :
 			$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
 			foreach ( $hooks_group_values['hooks'] as $hook_name => $hook_description ) :
@@ -269,6 +270,14 @@ class THA_Hooks_Interface {
 	 * @since    1.0.0
 	 */
 	
+	// WordPress
+	public function add_WordPress_wp_head() {
+		$this->tha_action( 'WordPress', 'wp_head' );
+	}
+	public function add_WordPress_wp_footer() {
+		$this->tha_action( 'WordPress', 'wp_footer' );
+	}
+
 	// HTML
 	public function add_html_tha_html_before() {
 		$this->tha_action( 'html', 'tha_html_before' );
@@ -375,7 +384,10 @@ class THA_Hooks_Interface {
 	 */
 	public function tha_action( $hook_group, $hook_name ) {
 
-		echo '123';	
+		$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
+		$tha_interface_setting = $tha_interface_settings[ $hook_name ];
+		print_r( $tha_interface_setting );
+		echo '123';
 
 	}	
 

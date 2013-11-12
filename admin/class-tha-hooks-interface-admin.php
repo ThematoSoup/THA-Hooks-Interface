@@ -196,7 +196,7 @@ class THA_Hooks_Interface_Admin {
 			// First, we register a section. This is necessary since all future options must belong to one.  
 			add_settings_section(  
 				'tha_hooks_interface_section_' . $tha_hooks_group, // ID used to identify this section and with which to register options  
-				$tha_hooks_group_values['name'],         // Title to be displayed on the administration page  
+				'',         // Title to be displayed on the administration page  
 				'',              // Callback used to render the description of the section  
 				'tha_hooks_interface_' . $tha_hooks_group         // Page on which to add this section of options  
 			); 
@@ -255,7 +255,7 @@ class THA_Hooks_Interface_Admin {
 		</p>
 
 		<p>
-		<label for="<?php echo $php_field_name; ?>">
+		<label for="<?php echo $shortcode_field_name; ?>">
 			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['shortcode'], 1 ); ?> />
 			<?php _e( 'Run shortcodes in this hook', $this->plugin_slug ); ?>
 		</label>

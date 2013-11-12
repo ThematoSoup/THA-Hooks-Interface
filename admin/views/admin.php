@@ -18,7 +18,7 @@
 	<?php screen_icon(); ?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
-	<?php $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'html'; ?>
+	<?php $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'WordPress'; ?>
 
 	<?php $all_tha_hooks = tha_interface_all_hooks(); ?>
 	
