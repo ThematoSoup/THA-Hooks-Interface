@@ -312,7 +312,7 @@ class THA_Hooks_Interface_Admin {
                     $dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
             
                     // Check if our pointer is not among dismissed ones
-                    if( ! in_array( 'tha_hooks_interface', $dismissed_pointers ) ) :
+                    if( ! in_array( 'tha_hooks_interface_pointer', $dismissed_pointers ) ) :
                             $enqueue_pointer_script_style = true;
                             // Add footer scripts using callback function
                             add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer_scripts' ) );
