@@ -387,21 +387,21 @@ class THA_Hooks_Interface_Admin {
 		<textarea style="font-family:monospace" rows="10" class="widefat" name="<?php echo $output_field_name; ?>" id="<?php echo $output_field_name; ?>"><?php echo htmlentities( $tha_interface_settings[ $hook_name ]['output'], ENT_QUOTES, 'UTF-8' ); ?></textarea>
 		</p>
 		
+		<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
 		<p>
 		<label for="<?php echo $php_field_name; ?>">
 			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['php'], 1 ); ?> />
 			<?php _e( 'Execute PHP in this hook', $this->plugin_slug ); ?>
 		</label>
 		</p>
+		<?php endif; ?>
 
-		<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
 		<p>
 		<label for="<?php echo $shortcode_field_name; ?>">
 			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['shortcode'], 1 ); ?> />
 			<?php _e( 'Run shortcodes in this hook', $this->plugin_slug ); ?>
 		</label>
 		</p>
-		<?php endif; ?>
 	<?php }
 	
 	
