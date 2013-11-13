@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: THA Hooks Interface\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-12 13:00+0100\n"
-"PO-Revision-Date: 2013-11-12 13:00+0100\n"
+"POT-Creation-Date: 2013-11-13 11:45+0100\n"
+"PO-Revision-Date: 2013-11-13 11:45+0100\n"
 "Last-Translator: Slobodan Manic <slobodan.manic@gmail.com>\n"
 "Language-Team: ThematoSoup <contact@thematosoup.com>\n"
 "Language: en_US\n"
@@ -18,23 +18,37 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPath-2: ./public\n"
 
-#: admin/class-tha-hooks-interface-admin.php:147
+#: admin/class-tha-hooks-interface-admin.php:106
+#: admin/class-tha-hooks-interface-admin.php:335
 msgid "THA Hooks Interface"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:148
+#: admin/class-tha-hooks-interface-admin.php:107
 msgid "THA Hooks"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:174
+#: admin/class-tha-hooks-interface-admin.php:133
 msgid "Settings"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:260
+#: admin/class-tha-hooks-interface-admin.php:337
+#, php-format
+msgid ""
+"<p>Thank you for installing THA Hooks Interface plugin! You can reach its "
+"settings page at Settings > THA Hooks screen. If you have any questions "
+"about it please use our <a href=\"%1$s\" target=\"_blank\">dedicated support "
+"forum</a>.</p><p>For any suggestions on how to make the plugin better, you "
+"can get in touch with us on <a href=\"%2$s\" target=\"_blank\">Twitter</a>.</"
+"p><p>If you find our plugin useful, please consider <a href=\"%3$s\" target="
+"\"_blank\">rating it at WordPress.org</a> or subscribing to our <a href="
+"\"%4$s\" target=\"_blank\">mailing list</a>.</p>"
+msgstr ""
+
+#: admin/class-tha-hooks-interface-admin.php:393
 msgid "Execute PHP in this hook"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:268
+#: admin/class-tha-hooks-interface-admin.php:401
 msgid "Run shortcodes in this hook"
 msgstr ""
 

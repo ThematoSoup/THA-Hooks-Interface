@@ -14,7 +14,7 @@
  * @wordpress-plugin
  * Plugin Name:       THA Hooks Interface
  * Plugin URI:        http://wordpress.org/plugins/tha-hooks-interface/
- * Description:       Creates interface that allows publishers to interact with THA Hooks
+ * Description:       Allows you to hook into Theme Hook Alliance hooks using a simple interface. Also works with standard WordPress hooks wp_head and wp_footer.
  * Version:           1.0.0
  * Author:            ThematoSoup
  * Author URI:        http://thematosoup.com

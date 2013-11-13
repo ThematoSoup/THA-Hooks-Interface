@@ -15,7 +15,7 @@
 *
 * @since    1.0.0
 */
-function tha_interface_all_hooks( $plugin_slug ) {
+function tha_interface_all_hooks() {
 
 	$plugin_slug = 'tha-hooks-interface';
 

@@ -24,7 +24,9 @@
 	
 	<h2 class="nav-tab-wrapper">
 		<?php foreach ( $all_tha_hooks as $tha_hooks_group => $tha_hooks_group_values ) : ?>
+		<?php if ( current_theme_supports( 'tha_hooks', $tha_hooks_group ) || 'WordPress' == $tha_hooks_group ) : ?>
 		<a href="?page=tha-hooks-interface&tab=<?php echo $tha_hooks_group; ?>" class="nav-tab <?php echo $active_tab == $tha_hooks_group ? 'nav-tab-active' : ''; ?>"><?php echo $tha_hooks_group_values['name'] ; ?></a>
+		<?php endif; ?>
 		<?php endforeach; ?>
 	</h2>
 
