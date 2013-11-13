@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: THA Hooks Interface\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 11:45+0100\n"
-"PO-Revision-Date: 2013-11-13 11:45+0100\n"
+"POT-Creation-Date: 2013-11-13 12:00+0100\n"
+"PO-Revision-Date: 2013-11-13 12:00+0100\n"
 "Last-Translator: Slobodan Manic <slobodan.manic@gmail.com>\n"
 "Language-Team: ThematoSoup <contact@thematosoup.com>\n"
 "Language: en_US\n"
@@ -44,11 +44,12 @@ msgid ""
 "\"%4$s\" target=\"_blank\">mailing list</a>.</p>"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:393
-msgid "Execute PHP in this hook"
+#: admin/class-tha-hooks-interface-admin.php:394
+msgid ""
+"Execute PHP in this hook (must be enclodes in opening and closing PHP tags)"
 msgstr ""
 
-#: admin/class-tha-hooks-interface-admin.php:401
+#: admin/class-tha-hooks-interface-admin.php:402
 msgid "Run shortcodes in this hook"
 msgstr ""
 

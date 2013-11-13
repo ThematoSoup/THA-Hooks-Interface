@@ -391,7 +391,7 @@ class THA_Hooks_Interface_Admin {
 		<p>
 		<label for="<?php echo $php_field_name; ?>">
 			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['php'], 1 ); ?> />
-			<?php _e( 'Execute PHP in this hook', $this->plugin_slug ); ?>
+			<?php _e( 'Execute PHP in this hook (must be enclodes in opening and closing PHP tags)', $this->plugin_slug ); ?>
 		</label>
 		</p>
 		<?php endif; ?>
