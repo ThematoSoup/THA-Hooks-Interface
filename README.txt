@@ -19,6 +19,8 @@ THA Hooks Interface checks whether a theme uses these standardized hooks and if 
 
 If your active theme does not declare support for [Theme Hook Alliance](https://github.com/zamoose/themehookalliance) hooks, you can still use with wp_head and wp_footer hooks which are standard WordPress hooks. Also, if it doesn't, please bug your theme developer about it :)
 
+Banner image credits: http://www.flickr.com/photos/notahipster/3974559627/
+
 
 == Installation ==
 
@@ -51,7 +53,7 @@ You must have a theme that's created using standardized hooks from Theme Hook Al
 
 == Screenshots ==
 
-1. THA Hooks Interface Dashboard - tha-hooks-interface-dashboard-1.png
+1. THA Hooks Interface Dashboard - screenshot-1.png
 
 == Changelog ==
 
