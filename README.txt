@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-THA Hooks Interface allows you to customize and alter theme functionality from within dashboard by hooking into Theme Hook Alliance hooks. If your active theme does not declare support for [Theme Hook Alliance](https://github.com/zamoose/themehookalliance) hooks, you can still use with wp_head and wp_footer hooks which are standard WordPress hooks. Also, if it doesn't, please bug your theme developer about it :)
+THA Hooks Interface allows you to customize and alter theme functionality from within dashboard by hooking into Theme Hook Alliance hooks. 
 
 == Description ==
 
@@ -16,6 +16,9 @@ THA Hooks Interface is a WordPress plugin developed by [ThematoSoup](http://them
 Core WordPress offers a suite of action hooks and template tags, but does not cover many of the common use cases. The Theme Hook Alliance is a community-driven effort to agree on a set of third-party action hooks that THA-compatible themes pledge to implement in order to give desired consistency.
 
 THA Hooks Interface checks whether a theme uses these standardized hooks and if it does, it creates an interface where you can add code to almost any part of the theme.
+
+If your active theme does not declare support for [Theme Hook Alliance](https://github.com/zamoose/themehookalliance) hooks, you can still use with wp_head and wp_footer hooks which are standard WordPress hooks. Also, if it doesn't, please bug your theme developer about it :)
+
 
 == Installation ==
 
