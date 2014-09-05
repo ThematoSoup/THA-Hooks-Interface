@@ -3,7 +3,7 @@ Contributors: slobodanmanic, nikolicdragan
 Tags: theme hook alliance, hooks, THA, ThematoSoup
 Requires at least: 3.5
 Tested up to: 3.7.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,13 @@ You must have a theme that's created using standardized hooks from Theme Hook Al
 1. THA Hooks Interface Dashboard - screenshot-1.png
 
 == Changelog ==
+
+
+= 1.1 =
+* Fixes two more undefined index notices in class-tha-hooks-interface-admin.php, props @codecandid
+
+= 1.0.1 =
+* Fixes an undefined index notice in class-tha-hooks-interface-admin.php
 
 = 1.0 =
 * The first version of the plugin.

@@ -204,7 +204,8 @@ class THA_Hooks_Interface_Admin {
 	public function add_admin_notice() {
 
 		global $pagenow;
-		$page_filter = $_GET['page'];
+		$page_filter = ( isset( $_GET['page'] ) ? $_GET['page'] : false );
+
 		// Don't do anything if not THA Interface settings page
 		if ( isset( $page_filter ) ) :
 			global $current_user;
@@ -379,6 +380,9 @@ class THA_Hooks_Interface_Admin {
 		$php_field_name = 'tha_hooks_interface_' . $hooks_group . '[' . $hook_name . '][php]';
 		$shortcode_field_name = 'tha_hooks_interface_' . $hooks_group . '[' . $hook_name . '][shortcode]';
 		$tha_interface_settings = get_option( 'tha_hooks_interface_' . $hooks_group );
+
+		$shortcode_checked = isset( $tha_interface_settings[ $hook_name ]['shortcode'] ) ? $tha_interface_settings[ $hook_name ]['shortcode'] : '';
+		$php_checked = isset( $tha_interface_settings[ $hook_name ]['php'] ) ? $tha_interface_settings[ $hook_name ]['php'] : '';
 		?>
 		
 		<p><?php echo $hook_description; ?></p>
@@ -390,7 +394,7 @@ class THA_Hooks_Interface_Admin {
 		<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
 		<p>
 		<label for="<?php echo $php_field_name; ?>">
-			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['php'], 1 ); ?> />
+			<input type="checkbox" name="<?php echo $php_field_name; ?>" id="<?php echo $php_field_name; ?>" value="1" <?php checked( $php_checked, 1 ); ?> />
 			<?php _e( 'Execute PHP in this hook (must be enclodes in opening and closing PHP tags)', $this->plugin_slug ); ?>
 		</label>
 		</p>
@@ -398,7 +402,7 @@ class THA_Hooks_Interface_Admin {
 
 		<p>
 		<label for="<?php echo $shortcode_field_name; ?>">
-			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $tha_interface_settings[ $hook_name ]['shortcode'], 1 ); ?> />
+			<input type="checkbox" name="<?php echo $shortcode_field_name; ?>" id="<?php echo $shortcode_field_name; ?>" value="1" <?php checked( $shortcode_checked, 1 ); ?> />
 			<?php _e( 'Run shortcodes in this hook', $this->plugin_slug ); ?>
 		</label>
 		</p>
